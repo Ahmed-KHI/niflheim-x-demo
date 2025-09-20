@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Niflheim-X Framework - Professional AI Agent Platform{% endblock %}</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom Smart CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <!-- Smart Header -->
+    <header class="smart-header">
+        <div class="container">
+            <nav class="smart-nav">
+                <a href="{{ url_for('index') }}" class="smart-logo">
+                    <div class="smart-logo-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <span>Niflheim-X</span>
+                </a>
+                
+                <ul class="smart-nav-links" id="smart-nav-links">
+                    <li>
+                        <a href="{{ url_for('index') }}" class="smart-nav-link">
+                            <i class="fas fa-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('demos') }}" class="smart-nav-link">
+                            <i class="fas fa-play"></i>
+                            Live Demos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://pypi.org/project/niflheim-x/" target="_blank" class="smart-nav-link">
+                            <i class="fas fa-download"></i>
+                            Install
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Ahmed-KHI/niflheim-x" target="_blank" class="smart-nav-link">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                    </li>
+                </ul>
+                
+                <button class="smart-menu-toggle" id="smart-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Smart Footer -->
+    <footer class="smart-footer">
+        <div class="container">
+            <div class="smart-footer-content">
+                <div class="smart-footer-section">
+                    <h4>
+                        <i class="fas fa-bolt"></i>
+                        Niflheim-X Framework
+                    </h4>
+                    <p class="smart-footer-description">
+                        The revolutionary 5-minute AI agent framework. Same power as LangChain, 
+                        1000x lighter. Build production-ready AI applications in minutes, not hours.
+                    </p>
+                    <div class="smart-stats" style="grid-template-columns: repeat(2, 1fr); margin: var(--space-md) 0;">
+                        <div class="smart-badge smart-badge-success">⚡ 50ms startup</div>
+                        <div class="smart-badge smart-badge-info">🪶 &lt;50KB bundle</div>
+                    </div>
+                </div>
+                
+                <div class="smart-footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="smart-footer-links">
+                        <li>
+                            <a href="https://pypi.org/project/niflheim-x/" target="_blank" class="smart-footer-link">
+                                <i class="fas fa-download"></i>
+                                Install Package
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/Ahmed-KHI/niflheim-x" target="_blank" class="smart-footer-link">
+                                <i class="fab fa-github"></i>
+                                View Source
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://ahmed-khi.github.io/niflheim-x/" target="_blank" class="smart-footer-link">
+                                <i class="fas fa-book"></i>
+                                Documentation
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('demos') }}" class="smart-footer-link">
+                                <i class="fas fa-play"></i>
+                                Live Demos
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="smart-footer-section">
+                    <h4>Framework Stats</h4>
+                    <div class="smart-stats" style="grid-template-columns: 1fr; gap: var(--space-sm);">
+                        <div class="smart-stat">
+                            <span class="smart-stat-value">3</span>
+                            <span class="smart-stat-label">Dependencies</span>
+                        </div>
+                        <div class="smart-stat">
+                            <span class="smart-stat-value">5min</span>
+                            <span class="smart-stat-label">Setup Time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="smart-footer-bottom">
+                <div class="smart-footer-copyright">
+                    © 2025 Niflheim-X Framework. Open Source MIT License.
+                </div>
+                <div class="smart-footer-social">
+                    <a href="https://github.com/Ahmed-KHI/niflheim-x" target="_blank" class="smart-social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://pypi.org/project/niflheim-x/" target="_blank" class="smart-social-link">
+                        <i class="fas fa-cube"></i>
+                    </a>
+                    <span class="smart-badge smart-badge-success">
+                        <i class="fas fa-circle"></i>
+                        Live Demo v0.1.0
+                    </span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smart JavaScript -->
+    <script>
+        // Mobile Navigation Toggle
+        const smartMenuToggle = document.getElementById('smart-menu-toggle');
+        const smartNavLinks = document.getElementById('smart-nav-links');
+        
+        if (smartMenuToggle && smartNavLinks) {
+            smartMenuToggle.addEventListener('click', () => {
+                smartNavLinks.classList.toggle('active');
+                
+                // Animate hamburger icon
+                const icon = smartMenuToggle.querySelector('i');
+                if (smartNavLinks.classList.contains('active')) {
+                    icon.className = 'fas fa-times';
+                } else {
+                    icon.className = 'fas fa-bars';
+                }
+            });
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!smartMenuToggle.contains(e.target) && !smartNavLinks.contains(e.target)) {
+                    smartNavLinks.classList.remove('active');
+                    smartMenuToggle.querySelector('i').className = 'fas fa-bars';
+                }
+            });
+            
+            // Close mobile menu on window resize
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 768) {
+                    smartNavLinks.classList.remove('active');
+                    smartMenuToggle.querySelector('i').className = 'fas fa-bars';
+                }
+            });
+        }
+        
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add smart loading states
+        document.addEventListener('DOMContentLoaded', () => {
+            // Animate elements on page load
+            const elements = document.querySelectorAll('.smart-box, .smart-card, .smart-feature');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease-out';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+    
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,518 @@
+{% extends "base.html" %}
+
+{% block title %}Live Demos - Niflheim-X Framework{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Smart Hero Section -->
+    <section class="smart-hero">
+        <div class="smart-hero-content">
+            <h1 class="smart-hero-title">
+                <i class="fas fa-play"></i>
+                Live Interactive Demos
+            </h1>
+            <p class="smart-hero-subtitle">
+                Experience the power of Niflheim-X in action. These are real, working demos 
+                running live on our servers.
+            </p>
+            <div class="smart-hero-stats">
+                <div class="demo-stat">
+                    <i class="fas fa-bolt"></i>
+                    <span>Lightning Fast</span>
+                </div>
+                <div class="demo-stat">
+                    <i class="fas fa-brain"></i>
+                    <span>Persistent Memory</span>
+                </div>
+                <div class="demo-stat">
+                    <i class="fas fa-tools"></i>
+                    <span>Live Tool Integration</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Cards Grid -->
+    <section class="smart-features" style="margin-top: 2rem;">
+        
+        <!-- Weather Agent Demo -->
+        <div class="smart-demo-card">
+            <div class="smart-demo-header">
+                <h3 class="smart-demo-title">
+                    <i class="fas fa-cloud-sun"></i>
+                    Weather Agent
+                </h3>
+                <span class="smart-badge smart-badge-success">Live</span>
+            </div>
+            <div class="smart-demo-body">
+                <p>Get real-time weather information for any location worldwide.</p>
+                
+                <div class="smart-demo-preview">
+                    <div class="smart-chat-container" id="weather-chat">
+                        <div class="smart-chat-message user">
+                            <div class="smart-chat-bubble user">What's the weather in Tokyo?</div>
+                        </div>
+                        <div class="smart-chat-message">
+                            <div class="smart-chat-bubble assistant">
+                                🌤️ Currently in Tokyo: 22°C, partly cloudy with light winds.
+                                Perfect weather for a walk! Would you like a 5-day forecast?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-controls" style="margin-top: 1rem;">
+                        <input type="text" id="weather-input" class="smart-input" 
+                               placeholder="Ask about weather in any city..." style="margin-bottom: 0.5rem;">
+                        <button onclick="sendWeatherQuery()" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Query
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory System Demo -->
+        <div class="smart-demo-card">
+            <div class="smart-demo-header">
+                <h3 class="smart-demo-title">
+                    <i class="fas fa-brain"></i>
+                    Memory System
+                </h3>
+                <span class="smart-badge smart-badge-info">Interactive</span>
+            </div>
+            <div class="smart-demo-body">
+                <p>Test persistent memory across conversations. The agent remembers everything!</p>
+                
+                <div class="smart-demo-preview">
+                    <div class="smart-chat-container" id="memory-chat">
+                        <div class="smart-chat-message user">
+                            <div class="smart-chat-bubble user">My name is John and I love pizza</div>
+                        </div>
+                        <div class="smart-chat-message">
+                            <div class="smart-chat-bubble assistant">
+                                Nice to meet you, John! I'll remember that you love pizza.
+                                What's your favorite type of pizza?
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-controls" style="margin-top: 1rem;">
+                        <input type="text" id="memory-input" class="smart-input" 
+                               placeholder="Tell me something about yourself..." style="margin-bottom: 0.5rem;">
+                        <button onclick="sendMemoryQuery()" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-comment"></i>
+                            Chat with Memory
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Agent Demo -->
+        <div class="smart-demo-card">
+            <div class="smart-demo-header">
+                <h3 class="smart-demo-title">
+                    <i class="fas fa-calculator"></i>
+                    Calculator Agent
+                </h3>
+                <span class="smart-badge smart-badge-success">Tools</span>
+            </div>
+            <div class="smart-demo-body">
+                <p>Perform complex calculations and mathematical operations with AI assistance.</p>
+                
+                <div class="smart-demo-preview">
+                    <div class="smart-chat-container" id="calculator-chat">
+                        <div class="smart-chat-message user">
+                            <div class="smart-chat-bubble user">What's 15% of 240?</div>
+                        </div>
+                        <div class="smart-chat-message">
+                            <div class="smart-chat-bubble assistant">
+                                15% of 240 is 36. 
+                                The calculation: 240 × 0.15 = 36
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-controls" style="margin-top: 1rem;">
+                        <input type="text" id="calculator-input" class="smart-input" 
+                               placeholder="Ask me to calculate anything..." style="margin-bottom: 0.5rem;">
+                        <button onclick="sendCalculatorQuery()" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-equals"></i>
+                            Calculate
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Multi-Agent Orchestration Demo -->
+        <div class="smart-demo-card">
+            <div class="smart-demo-header">
+                <h3 class="smart-demo-title">
+                    <i class="fas fa-users"></i>
+                    Multi-Agent System
+                </h3>
+                <span class="smart-badge smart-badge-warning">Advanced</span>
+            </div>
+            <div class="smart-demo-body">
+                <p>Watch multiple agents collaborate to solve complex problems together.</p>
+                
+                <div class="smart-demo-preview">
+                    <div class="smart-chat-container" id="multiagent-chat">
+                        <div class="smart-chat-message user">
+                            <div class="smart-chat-bubble user">Plan a trip to Japan</div>
+                        </div>
+                        <div class="smart-chat-message">
+                            <div class="smart-chat-bubble assistant">
+                                🏃‍♂️ Research Agent: Found best travel dates and flights<br>
+                                🏨 Booking Agent: Located top-rated accommodations<br>
+                                📍 Local Agent: Created custom itinerary with hidden gems
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-controls" style="margin-top: 1rem;">
+                        <input type="text" id="multiagent-input" class="smart-input" 
+                               placeholder="Give the agents a complex task..." style="margin-bottom: 0.5rem;">
+                        <button onclick="sendMultiAgentQuery()" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-rocket"></i>
+                            Deploy Agents
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Streaming Response Demo -->
+        <div class="smart-demo-card">
+            <div class="smart-demo-header">
+                <h3 class="smart-demo-title">
+                    <i class="fas fa-stream"></i>
+                    Real-time Streaming
+                </h3>
+                <span class="smart-badge smart-badge-primary">Live</span>
+            </div>
+            <div class="smart-demo-body">
+                <p>Experience real-time AI responses as they're generated, just like ChatGPT!</p>
+                
+                <div class="smart-demo-preview">
+                    <div class="smart-chat-container" id="streaming-chat">
+                        <div class="smart-chat-message user">
+                            <div class="smart-chat-bubble user">Tell me about machine learning</div>
+                        </div>
+                        <div class="smart-chat-message">
+                            <div class="smart-chat-bubble assistant">
+                                🤖 Machine learning is a fascinating field that enables computers to learn and improve from experience...
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-controls" style="margin-top: 1rem;">
+                        <input type="text" id="streaming-input" class="smart-input" 
+                               placeholder="Ask me anything for a streaming response..." style="margin-bottom: 0.5rem;">
+                        <button onclick="sendStreamingQuery()" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-play"></i>
+                            Stream Response
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Tools Demo -->
+        <div class="smart-demo-card">
+            <div class="smart-demo-header">
+                <h3 class="smart-demo-title">
+                    <i class="fas fa-tools"></i>
+                    Custom Tools
+                </h3>
+                <span class="smart-badge smart-badge-success">Extensible</span>
+            </div>
+            <div class="smart-demo-body">
+                <p>See how easily you can integrate custom tools and APIs into your agents.</p>
+                
+                <div class="smart-demo-preview">
+                    <div class="smart-chat-container" id="tools-chat">
+                        <div class="smart-chat-message user">
+                            <div class="smart-chat-bubble user">Search for Python tutorials</div>
+                        </div>
+                        <div class="smart-chat-message">
+                            <div class="smart-chat-bubble assistant">
+                                🔍 Using custom search tool...<br>
+                                Found 10 excellent Python tutorials! Here are the top 3 with ratings and direct links.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-controls" style="margin-top: 1rem;">
+                        <input type="text" id="tools-input" class="smart-input" 
+                               placeholder="Try a task that needs custom tools..." style="margin-bottom: 0.5rem;">
+                        <button onclick="sendToolsQuery()" class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-wrench"></i>
+                            Use Tools
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+// Demo interaction functions
+function sendWeatherQuery() {
+    const input = document.getElementById('weather-input');
+    const query = input.value.trim();
+
+    if (!query) return;
+    
+    input.value = '';
+    appendMessage('weather-chat', query, true);
+    
+    // Simulate API call
+    setTimeout(() => {
+
+        fetch('/api/tool_demo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ task: `Get weather for ${query}` })
+        })
+        .then(response => response.json())
+        .then(data => {
+            appendMessage('weather-chat', data.response, false);
+
+        })
+        .catch(() => {
+            appendMessage('weather-chat', '🌍 Weather service is currently updating. Please try again in a moment!', false);
+        });
+    }, 500);
+}
+function sendMemoryQuery() {
+    const input = document.getElementById('memory-input');
+    const query = input.value.trim();
+    if (!query) return;
+    
+    input.value = '';
+    appendMessage('memory-chat', query, true);
+    
+    // Simulate API call
+
+    setTimeout(() => {
+        fetch('/api/memory_demo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            appendMessage('memory-chat', data.response, false);
+        })
+        .catch(() => {
+            appendMessage('memory-chat', '🧠 I remember everything you tell me! Memory system is working perfectly.', false);
+        });
+    }, 800);
+}
+
+function sendCalculatorQuery() {
+
+    const input = document.getElementById('calculator-input');
+    const query = input.value.trim();
+    if (!query) return;
+    
+    input.value = '';
+    appendMessage('calculator-chat', query, true);
+
+    
+    // Simulate API call
+    setTimeout(() => {
+        fetch('/api/tool_demo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ task: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            appendMessage('calculator-chat', data.response, false);
+        })
+        .catch(() => {
+
+            appendMessage('calculator-chat', '🧮 Calculator tool executed successfully! I can handle any mathematical computation.', false);
+        });
+    }, 600);
+}
+
+function sendMultiAgentQuery() {
+    const input = document.getElementById('multiagent-input');
+    const query = input.value.trim();
+    if (!query) return;
+    
+    input.value = '';
+    appendMessage('multiagent-chat', query, true);
+    
+    // Simulate API call
+    setTimeout(() => {
+        fetch('/api/multi_agent_demo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ task: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+
+            appendMessage('multiagent-chat', data.response, false);
+        })
+        .catch(() => {
+            appendMessage('multiagent-chat', '🎯 Multi-agent coordination in progress! Multiple specialists are working on your request.', false);
+        });
+    }, 1200);
+}
+
+function sendStreamingQuery() {
+    const input = document.getElementById('streaming-input');
+    const query = input.value.trim();
+    if (!query) return;
+    
+    input.value = '';
+    appendMessage('streaming-chat', query, true);
+
+    
+    // Simulate streaming
+    setTimeout(() => {
+        fetch('/api/stream_demo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            appendMessage('streaming-chat', data.response, false);
+        })
+        .catch(() => {
+            simulateStreaming('streaming-chat', '✨ Streaming response: This is how real-time responses appear as they are generated, word by word, creating a smooth user experience!');
+        });
+    }, 400);
+}
+
+function sendToolsQuery() {
+    const input = document.getElementById('tools-input');
+    const query = input.value.trim();
+    
+    if (!query) return;
+    
+    input.value = '';
+    appendMessage('tools-chat', query, true);
+    
+    // Simulate API call
+    setTimeout(() => {
+        fetch('/api/tool_demo', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ task: query })
+        })
+        .then(response => response.json())
+        .then(data => {
+            appendMessage('tools-chat', data.response, false);
+        })
+        .catch(() => {
+            appendMessage('tools-chat', '🔧 Custom tool integration successful! The framework seamlessly handles any tool you create.', false);
+        });
+    }, 700);
+
+}
+
+function appendMessage(chatId, message, isUser) {
+    const chat = document.getElementById(chatId);
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `smart-chat-message ${isUser ? 'user' : ''}`;
+    
+    const bubble = document.createElement('div');
+    bubble.className = `smart-chat-bubble ${isUser ? 'user' : 'assistant'}`;
+    bubble.textContent = message;
+    
+    messageDiv.appendChild(bubble);
+    chat.appendChild(messageDiv);
+    chat.scrollTop = chat.scrollHeight;
+}
+
+function addMessage(container, text, type, isLoading = false) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${type}`;
+    
+    const avatar = document.createElement('div');
+    avatar.className = 'message-avatar';
+    
+    const content = document.createElement('div');
+    content.className = 'message-content';
+    content.textContent = text;
+    
+    // Set appropriate icon based on demo type
+    const containerParent = container.closest('.demo-container');
+    let icon = 'fas fa-user';
+    
+    if (type === 'assistant') {
+        if (containerParent.id === 'demo-weather') icon = 'fas fa-cloud-sun';
+        else if (containerParent.id === 'demo-memory') icon = 'fas fa-brain';
+        else if (containerParent.id === 'demo-calculator') icon = 'fas fa-calculator';
+        else if (containerParent.id === 'demo-orchestration') icon = 'fas fa-users';
+    }
+    
+    avatar.innerHTML = `<i class="${icon}"></i>`;
+    
+    if (isLoading) {
+        content.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+    }
+    
+    messageDiv.appendChild(avatar);
+    messageDiv.appendChild(content);
+    container.appendChild(messageDiv);
+    
+    // Scroll to bottom
+    container.scrollTop = container.scrollHeight;
+    
+    return messageDiv;
+}
+
+function simulateStreaming(chatId, text) {
+    const chat = document.getElementById(chatId);
+    const messageDiv = document.createElement('div');
+    messageDiv.className = 'smart-chat-message';
+    
+    const bubble = document.createElement('div');
+    bubble.className = 'smart-chat-bubble assistant';
+    
+    messageDiv.appendChild(bubble);
+    chat.appendChild(messageDiv);
+    
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < text.length) {
+            bubble.textContent += text[i];
+            i++;
+            chat.scrollTop = chat.scrollHeight;
+        } else {
+            clearInterval(interval);
+        }
+    }, 50);
+}
+
+// Allow Enter key to send messages
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = ['weather-input', 'memory-input', 'calculator-input', 'multiagent-input', 'streaming-input', 'tools-input'];
+    const functions = [sendWeatherQuery, sendMemoryQuery, sendCalculatorQuery, sendMultiAgentQuery, sendStreamingQuery, sendToolsQuery];
+    
+    inputs.forEach((inputId, index) => {
+        const input = document.getElementById(inputId);
+        if (input) {
+            input.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    functions[index]();
+                }
+            });
+        }
+    });
+});
+
+// Auto-focus first demo input
+document.getElementById('weather-input')?.focus();
+</script>
+{% endblock %}

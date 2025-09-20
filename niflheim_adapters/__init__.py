@@ -1,0 +1,1 @@
+# Niflheim adapters package
