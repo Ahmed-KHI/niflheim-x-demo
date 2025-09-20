@@ -2,7 +2,6 @@
 
 > **Experience the power of the revolutionary 50ms AI agent framework**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/niflheim-x-demo)
 [![Python](https://img.shields.io/badge/Python-3.12+-blue.svg)](https://python.org)
 [![Niflheim-X](https://img.shields.io/badge/Niflheim--X-0.1.0-green.svg)](https://pypi.org/project/niflheim-x/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
@@ -10,8 +9,6 @@
 ## 🎯 What is This?
 
 This is a **live, interactive web demo** showcasing the real capabilities of the [**Niflheim-X**](https://pypi.org/project/niflheim-x/) framework - a lightweight, composable AI agent orchestration framework that's **1000x lighter than LangChain** with the same power.
-
-**🚀 [LIVE DEMO](YOUR_VERCEL_URL_HERE)** ← Try it now!
 
 ### ⚡ Framework Highlights
 
